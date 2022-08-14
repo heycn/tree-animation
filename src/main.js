@@ -1,5 +1,5 @@
-const canvas = document.getElementById('canvas')
-const ctx = canvas.getContext('2d')
+let canvas = document.getElementById('canvas')
+let ctx = canvas.getContext('2d')
 
 let angleIncrement = (30 * Math.PI) / 180
 let startX = canvas.width / 2
@@ -18,6 +18,7 @@ let createRect = (x, y, width, height, color) => {
 let drawLine = (x1, y1, x2, y2, thickness, color) => {
   ctx.lineWidth = thickness
   ctx.strokeStyle = color
+  ctx.beginPath()
   ctx.moveTo(x1, y1)
   ctx.lineTo(x2, y2)
   ctx.closePath()
@@ -29,20 +30,18 @@ let drawBranch = (x, y, height, thickness, angle, depth) => {
   let endX = x - height * Math.sin(angle)
   let endY = y - height * Math.cos(angle)
 
-  drawLine(x, y, endX, endY, thickness, 'black')
+  drawLine(x, y, endX, endY, thickness, '#000')
 
   let newHeight = (height * 8) / 12
   let newThickness = (thickness * 2) / 3
   let angleStart
 
-  if (branchPropagation % 2 === 0) {
-    angleStart =
-      angle -
-      angleIncrement / 2 -
-      Math.trunc(branchPropagation / 2) * angleIncrement
-  } else {
-    angleStart = angle - Math.trunc(branchPropagation / 2) * angleIncrement
-  }
+  angleStart =
+    branchPropagation % 2 === 0
+      ? angle -
+        angleIncrement / 2 -
+        (Math.trunc(branchPropagation / 2) - 1) * angleIncrement
+      : angle - Math.trunc(branchPropagation / 2) * angleIncrement
 
   for (let i = 0; i < branchPropagation; i++) {
     drawBranch(
@@ -56,5 +55,5 @@ let drawBranch = (x, y, height, thickness, angle, depth) => {
   }
 }
 
-createRect(0, 0, canvas.width, canvas.height, '#EEEEEE')
+createRect(0, 0, canvas.width, canvas.height, '#eee')
 drawBranch(startX, startY, height, thickness, 0, Math.PI / 2)
