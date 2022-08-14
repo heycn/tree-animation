@@ -40,9 +40,12 @@ let drawBranch = (x, y, height, thickness, angle, depth) => {
   drawLine(x, y, endX, endY, thickness, color)
 
 
-  angleStart = branchPropagation % 2 === 0
-                ? angle - angleIncrement / 2 - (Math.trunc(branchPropagation / 2) - 1) * angleIncrement
-                : angle - Math.trunc(branchPropagation / 2) * angleIncrement
+  angleStart =
+    branchPropagation % 2 === 0
+      ? angle -
+        angleIncrement / 2 -
+        (Math.trunc(branchPropagation / 2) - 1) * angleIncrement
+      : angle - Math.trunc(branchPropagation / 2) * angleIncrement
 
   for (let i = 0; i < branchPropagation; i++) {
     drawBranch(
