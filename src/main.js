@@ -3,11 +3,11 @@ const ctx = canvas.getContext('2d')
 
 let angleIncrement = (30 * Math.PI) / 180
 let startX = canvas.width / 2
-let startY = canvas.height / 2
+let startY = canvas.height - 100
 let height = (canvas.height * 7) / 24
 
-let thickness = 5
-let maxDepth = 8
+let thickness = 0.5
+let maxDepth = 6
 let count = 0
 let branchPropagation = 5
 let createRect = (x, y, width, height, color) => {
