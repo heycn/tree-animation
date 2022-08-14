@@ -3,13 +3,13 @@ const ctx = canvas.getContext('2d')
 
 let angleIncrement = (30 * Math.PI) / 180
 let startX = canvas.width / 2
-let startY = canvas.height - 100
-let height = (canvas.height * 7) / 24
+let startY = canvas.height
+let height = (canvas.height * 8) / 24
 
-let thickness = 0.5
-let maxDepth = 6
+let thickness = 1
+let maxDepth = 10
 let count = 0
-let branchPropagation = 5
+let branchPropagation = 4
 let createRect = (x, y, width, height, color) => {
   ctx.fillStyle = color
   ctx.fillRect(x, y, width, height)
