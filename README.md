@@ -1,8 +1,6 @@
 # 会动的树
 
-这是我仿照 Servet Gulnaroglu 写的一个demo
-
-by [@servetgulnaroglu](https://github.com/servetgulnaroglu)
+这是我仿照以为土耳其程序员 `Servet Gulnaroglu` 写的一个 demo
 
 ## 如何开发
 
